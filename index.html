@@ -1,0 +1,105 @@
+<!Doctype Html>
+<head>
+    <meta charset = "UTF-8">
+          <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+               <meta http-equiv = "X-UA-compatible" content = "ie=edge">  
+               <link rel="stylesheet" href="style.css">
+               <link rel="stylesheet" href="responsive.css">
+               <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	                 <title>Birthday @45 Celebration Party</title>
+</head>
+<body>
+    <div class = "header">
+        <div class ="header_1">
+        </div>
+        <div class ="header_1">
+            <Form action ="" method ="POST">
+                <div class ="firstname">
+                    <p> Full Name : </p>
+
+                    <input type ="text" name="fullname" placeholder= "Enter your full name"/>
+                </div>
+        
+                <div class ="firstname">
+                    <p>Email Address : </p>
+
+                    <input type ="text" name="email" placeholder= "Enter Your email Address"/>
+                </div>
+
+                <div class ="firstname">
+                    <p> Phone Number : </p>
+
+                    <input type ="text" name="phone_number" placeholder= "Enter your phone Number"/>
+                </div>
+
+                <div class ="firstname">
+                    <p> How Many Guests Are you coming with?: </p>
+
+                    <input type ="text" name="guest" placeholder= "Number of your invited guest"/>
+                </div>
+
+            
+                <div class="select">
+                    <p>Which category are you buying?</p>
+                    <label class="radio-label">
+                        <input type="radio" name="attend" value="NEHBA_MEMBER" class="attend" />
+                        <span>10k <small>(NEHBA MEMBER)</small></span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="attend" value="NON_MEMBER" class="attend" />
+                        <span>20k <small>(NON_MEMBER)</small></span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="attend" value="AFTER_PARTY" class="attend" />
+                        <span>10k <small>(AFTER PARTY)</small></span>
+                    </label>
+                </div>
+                
+
+                <div class="submit">
+                    <input type="submit" name="submit" value="Submit" id="submitBtn"/>
+                    <div class="spinner" id="spinner"></div>
+                </div>
+
+            </Form>
+        </div>
+
+    </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const submitBtn = document.getElementById("submitBtn");
+    const spinner = document.getElementById("spinner");
+
+    form.addEventListener("submit", function (event) {
+        // Check if any error message exists before submission
+        const errorMessages = document.querySelectorAll(".error_message");
+        let hasError = false;
+
+        errorMessages.forEach(errorDiv => {
+            if (errorDiv.textContent.trim() !== "") {
+                hasError = true;
+            }
+        });
+
+        // Prevent form submission if errors exist
+        if (hasError) {
+            event.preventDefault();
+        } else {
+            submitBtn.style.display = "none"; // Hide button
+            spinner.style.display = "inline-block"; // Show spinner
+        }
+    });
+
+    // Ensure errors are removed only on full reload
+    setTimeout(() => {
+        document.querySelectorAll(".error_message").forEach(errorDiv => {
+            errorDiv.textContent = ""; // Clear errors after a delay
+        });
+    }, 2500); // 2 seconds delay to allow form submission messages to be seen
+});
+   
+</script>
+
+</body>
+</html>
